@@ -1,8 +1,8 @@
-### IGTI 📖
+# IGTI 📖
 
 ## Treinamento 💻
 
-# Exercícios praticados com as aulas curso FullStack do IGTI
+### Exercícios praticados com as aulas curso FullStack do IGTI
 
 Estudaremos um HTML / CSS / Javascript / Nodejs / React e muito mais...
 
@@ -18,15 +18,16 @@ Para aproveitar o máximo das aulas você precisará de
 - [x] [Node.js](https://nodejs.org/) 
 - [x] Muita vontade de aprender
 
+
 ## Confira se está usando a versão correta do Node e NPM
 
-# Node
+### Node
 
 ```
 $ node -version
 ```
 
-# NPM
+### NPM
 
 ```
 # npm - version
@@ -34,6 +35,6 @@ $ node -version
 
 > Lembre-se que todas as grandes caminhadas começam com os primeiros passos 
 
-Vamos aprender juntos !!!
+#### Vamos aprender juntos !!!
 
 **[⬆ back to top](#IGTI)**
