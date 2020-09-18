@@ -11,10 +11,10 @@ Estudaremos um HTML / CSS / Javascript / Nodejs / React e muito mais...
 Para aproveitar o máximo das aulas você precisará de 
 - [x] VSCode
 - [x] Extensões do VSCode
-- (✓) vscode-icons
-- (✓) Debugger for Chrome
-- (✓) Prettier
-- (✓) Color Highlight
+  - vscode-icons
+  - Debugger for Chrome
+  - Prettier
+  - Color Highlight
 - [x] Node
 - [x] Muita vontade de aprender
 
