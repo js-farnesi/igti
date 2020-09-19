@@ -1,6 +1,6 @@
-# IGTI 📖
+# IGTI
 
-## Treinamento 💻
+## Treinamento JavaScript 💻📖
 
 ### Exercícios praticados com as aulas curso FullStack do IGTI
 
@@ -48,4 +48,5 @@ No Gitbash for Windows
 
 #### Vamos aprender juntos !!!
 
-**[⬆ back to top](#IGTI)**
+**[⬆ voltar ao top](#IGTI)**
+**<b><a href="#IGTI">↥ voltar ao topo</a></b>
