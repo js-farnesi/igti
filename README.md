@@ -1,6 +1,6 @@
 # IGTI
 
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
 [Read this page in English](https://github.com/js-farnesi/igti/blob/master/README-en.md)
 
@@ -8,7 +8,7 @@
 
 ### Exercícios praticados com as aulas curso FullStack do IGTI
 
-Estudaremos um HTML / CSS / Javascript / Nodejs / React e muito mais...
+Estudaremos HTML / CSS / Javascript / Nodejs / React e muito mais...
 
 ## Requisitos
 
