@@ -2,6 +2,8 @@
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
+[Read this page in English](https://github.com/js-farnesi/igti/blob/master/README-en.md)
+
 ## Treinamento JavaScript 💻📖
 
 ### Exercícios praticados com as aulas curso FullStack do IGTI
