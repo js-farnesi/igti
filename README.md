@@ -49,4 +49,3 @@ No Gitbash for Windows
 #### Vamos aprender juntos !!!
 
 **[⬆ voltar ao top](#IGTI)**
-**<b><a href="#IGTI">↥ voltar ao topo</a></b>
