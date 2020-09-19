@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
-[Read this page in English](https://github.com/js-farnesi/igti/blob/master/README-en.md)
+[Read this page in English](https://github.com/js-farnesi/igti/blob/master/README-EN.md)
 
 ## Treinamento JavaScript 💻📖
 
