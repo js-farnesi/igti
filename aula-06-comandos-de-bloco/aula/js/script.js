@@ -73,3 +73,33 @@ var diasemana =
     : 'Dia inválido';
 
 console.log(diasemana);
+
+// Somatório com while
+
+var numeroAtual = 1;
+var somatorio = 0;
+
+while (numeroAtual <= 10) {
+  // somatorio = somatorio + numeroAtual
+  somatorio += numeroAtual;
+  // se esquecer o incremento irá gerar loop infinito
+  numeroAtual++;
+}
+console.log('A soma é ' + somatorio);
+
+// Somatório com do... while
+var numAtual = 1;
+var total = 0;
+
+do {
+  total += numAtual;
+  numAtual++;
+} while (numAtual <= 10);
+console.log('A soma é ' + total);
+
+// Somatório com for
+var soma = 0;
+for (var sequenciaAtual = 1; sequenciaAtual <= 10; sequenciaAtual++) {
+  soma += sequenciaAtual;
+}
+console.log('A soma é ' + soma);
