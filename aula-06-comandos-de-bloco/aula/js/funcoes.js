@@ -25,7 +25,6 @@ function superSum(from, upTo) {
   }
   return sum;
 }
-
 console.log(superSum(1, 10));
 console.log(superSum(9, 100));
 console.log(superSum(200, 1000));
