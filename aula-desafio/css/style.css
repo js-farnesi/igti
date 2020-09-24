@@ -1,0 +1,15 @@
+/* body {
+  margin: 0 auto;
+} */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-weight: bolder;
+}
+.square {
+  width: 100rem;
+  height: 100rem;
+  border: 1px solid lightgray;
+}
