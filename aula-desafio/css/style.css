@@ -1,15 +1,80 @@
-/* body {
+body {
   margin: 0 auto;
-} */
+}
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5px 2rem 0 2rem;
+}
+h1 {
+  text-align: center;
+  margin: 0;
+}
+ul,
+li {
+  list-style-type: none;
+}
+ul {
+  width: 350px;
+}
+li {
+  margin: 5px;
+}
+/* O alinhamento não dava certo pois o span não tinha tamanho mínimo */
+.label {
+  min-width: 140px;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .flex-row {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   font-weight: bolder;
 }
-.square {
-  width: 100rem;
-  height: 100rem;
+#square {
+  width: 10rem;
+  height: 10rem;
   border: 1px solid lightgray;
+  margin-bottom: 3rem;
+}
+.range {
+  min-width: 200px;
+  margin-right: 20px;
+}
+@media screen and (max-width: 740px) {
+  html {
+    width: 80vw;
+  }
+}
+@media screen and (max-width: 660px) {
+  html {
+    width: 70vw;
+  }
+  .flex-row {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 580px) {
+  html {
+    width: 65vw;
+  }
+  img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+  .flex-row {
+    display: flex;
+    flex-direction: column;
+  }
 }

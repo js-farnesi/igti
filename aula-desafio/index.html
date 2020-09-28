@@ -3,35 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Document</title>
   </head>
   <body>
     <div id="header">
-      <div>
-        <img src="img/igti_logo.png" alt="Logo IGTI" />
-        <img src="img/BootcampFullStack.png" alt="Bootcamp Full Stack" />
-      </div>
-      <div class="flex-column">
-        <div class="container"></div>
-        <h1>DESAFIO PRATICO PRIMEIRO MÓDULO</h1>
-        <div class="flex-row">
-          <span>(R) - Vermelho</span>
-          <input type="range" name="range-red" min="0" max="255" value="0" />
-          <input type="text" name="" id="" disabled />
-        </div>
-        <div class="flex-row">
-          <span>(G) - Verde</span>
-          <input type="range" name="range-green" min="0" max="255" value="0" />
-          <input type="text" name="" id="" disabled />
-        </div>
-        <div class="flex-row">
-          <span>(B) - Azul</span>
-          <input type="range" name="range-blue" min="0" max="255" value="0" />
-          <input type="text" name="" id="" disabled />
-        </div>
-
-        <div class="square"></div>
-      </div>
+      <img src="img/igti_logo.png" width="180" height="180" alt="Logo IGTI" />
+      <img
+        src="img/BootcampFullStack.png"
+        width="150"
+        height="150"
+        alt="Bootcamp Full Stack"
+      />
     </div>
+
+    <div class="container">
+      <h1>DESAFIO PRATICO PRIMEIRO MÓDULO</h1>
+      <div class="flex-column">
+        <ul>
+          <li class="flex-row">
+            <span class="label">(R) - Vermelho</span>
+            <input
+              class="range"
+              type="range"
+              id="range-red"
+              min="0"
+              max="255"
+              value="0"
+            />
+            <input type="number" name="" id="inputRed" disabled />
+          </li>
+
+          <li class="flex-row">
+            <span class="label">(G) - Verde</span>
+            <input
+              class="range"
+              type="range"
+              id="range-green"
+              min="0"
+              max="255"
+              value="0"
+            />
+            <input type="number" name="" id="inputGreen" disabled />
+          </li>
+
+          <li class="flex-row">
+            <span class="label">(B) - Azul</span>
+            <input
+              class="range"
+              type="range"
+              id="range-blue"
+              min="0"
+              max="255"
+              value="0"
+            />
+            <input type="number" name="" id="inputBlue" disabled />
+          </li>
+        </ul>
+
+        <div id="square"></div>
+
+    </div>
+
+    <script src="./js/script.js"></script>
   </body>
 </html>
