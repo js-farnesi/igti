@@ -51,6 +51,7 @@ li {
 @media screen and (max-width: 740px) {
   html {
     width: 80vw;
+    margin: auto;
   }
 }
 @media screen and (max-width: 660px) {

@@ -46,7 +46,7 @@ window.addEventListener('load', () => {
 
 // não queremos o array completo, apenas id name population flag, usamos destructuring e não repetimos campo (flag: flag)
 async function fetchCountries() {
-  const res = await fetch('https://restcountries.eu/rest/v2/all');
+  const res = await fetch('https://restccountries.eu/rest/v2/all');
   const json = await res.json();
   allCountries = json.map((country) => {
     const { numericCode, translations, population, flag } = country;
