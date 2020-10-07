@@ -8,10 +8,8 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "program": "${workspaceFolder}\\aula-2.01-nodejs\\index.js"
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}\\aula-2.01-nodejs\\index.js",
       "args": ["10000"]
     }
   ]
