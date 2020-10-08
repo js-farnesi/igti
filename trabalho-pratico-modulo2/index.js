@@ -1,5 +1,4 @@
 import { promises as fs } from 'fs';
-import { inherits } from 'util';
 
 init();
 
@@ -8,6 +7,10 @@ async function init() {
   //console.log(await countCitiesByUF('CE'));
   await getUFWithMoreorLessCities(true);
   await getUFWithMoreorLessCities(false);
+  //console.log(await getBiggerNameByUF('MG'));
+  //console.log(await getSmallerNameByUF('MG'));
+  await getBiggerOrSmallerNameCities(true);
+  await getBiggerOrSmallerNameCities(false);
 }
 
 // antes de organizar na função init
@@ -74,5 +77,53 @@ async function getUFWithMoreorLessCities(decision) {
       .forEach((item) => result.push(`${item.uf} - ${item.count}`));
   }
   // console.log(stateList);
+  console.log(result);
+}
+
+async function getBiggerNameByUF(uf) {
+  const cities = JSON.parse(await fs.readFile(`./states/${uf}.json`));
+  let result;
+  //prettier-ignore
+  cities.forEach((city) => {
+    if (!result) 
+      result = city;
+    else if (city.Nome.length > result.Nome.length) 
+      result = city;
+    else if (
+      city.Nome.length === result.Nome.length &&
+      city.Nome.toLowerCase() < result.Nome.toLowerCase())
+      result = city;
+  });
+  return result;
+}
+async function getSmallerNameByUF(uf) {
+  const cities = JSON.parse(await fs.readFile(`./states/${uf}.json`));
+  let result;
+  //prettier-ignore
+  cities.forEach((city) => {
+    if (!result) 
+      result = city;
+    else if (city.Nome.length < result.Nome.length) 
+      result = city;
+    else if (
+      city.Nome.length === result.Nome.length &&
+      city.Nome.toLowerCase() < result.Nome.toLowerCase())
+      result = city;
+  });
+  return result;
+}
+
+async function getBiggerOrSmallerNameCities(bigger) {
+  const states = JSON.parse(await fs.readFile('./files/Estados.json'));
+  const result = [];
+  for (let state of states) {
+    let city;
+    if (bigger) {
+      city = await getBiggerNameByUF(state.Sigla);
+    } else {
+      city = await getSmallerNameByUF(state.Sigla);
+    }
+    result.push(`${city.Nome} - ${state.Sigla}}`);
+  }
   console.log(result);
 }
