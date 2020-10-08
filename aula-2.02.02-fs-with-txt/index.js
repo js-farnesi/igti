@@ -1,4 +1,4 @@
-// # importando com promises
+// # utilizando com promises com async/await
 import { promises as fs } from 'fs';
 
 init();
