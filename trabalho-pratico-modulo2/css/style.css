@@ -1,0 +1,9 @@
+body {
+  margin: 0 auto;
+}
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 5px 2rem 0 2rem;
+}
