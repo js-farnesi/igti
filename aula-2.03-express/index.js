@@ -109,14 +109,13 @@ app.get('/testParam/:id/:a?', (req, res) => {
 });
 // No insomnia passamos na URL testParam/10/2 e teremos como resposta 10 2, mas se não passarmos o segundo parâmetro não tem problema por causa do ?. Ou seja, o segundo parâmetro é opcional, retornando undefined no segundo parâmetro, mas se não passarmos o primeiro parâmetro retornará o erro 404
 
-
 // Parametros via query
 // Para passar parâmetros via query string que basicamente são chaves valores (chave=valor) que começam a partir da ?, concatenados pelo &. Passando via query a rota vai receber tudo isso via JSON, assim a rota fica dinâmica, podendo acrescentar ou remover parâmetros.
 // Vamos depois ver estes parâmetros usando o req.query
 // Na hora que estivermos fazendo APIs de fato, colocaremos regras de negócio dentro das rotas
-app.get("testQuery?nome=joao&email=xyz&cpf=01923432423", (req, res) => {
-	res.send(req.query)
-})
+app.get('testQuery?nome=joao&email=xyz&cpf=01923432423', (req, res) => {
+  res.send(req.query);
+});
 
 // Pegamos o resultado da query em JSON usando o req.query
 // {
@@ -133,31 +132,35 @@ app.get("testQuery?nome=joao&email=xyz&cpf=01923432423", (req, res) => {
 //  Usando next
 // O parâmetro next tem que ficar na 3ª posição
 // Entre a primeira callback e a segunda, colocamos o parâmetro next para que não fique preso na primeira callback. Tiremos o fluxo de execução da primeira função para a segunda função.
-app.get("/testMultipleHandlers", (req, res, next) => {
-	console.log("Callback 1");
-	next();
-}, (req, res) => {
-	console.log("Callback 2");
-})
+app.get(
+  '/testMultipleHandlers',
+  (req, res, next) => {
+    console.log('Callback 1');
+    next();
+  },
+  (req, res) => {
+    console.log('Callback 2');
+  }
+);
 // Ao executar o código do jeito que está ficará executando e a requisição não termina, apesar de imprimir o resultado, senão a requisição vai ficar pendente eternamente. Então precisamos encerrar a requisição para dar uma resposta para o usuário. Podemos passar o next para várias funções, mas na última tem que finalizar a execução, seja retornando uma resposta para o o usuário ou se não formos retornar nada devemos fazer um res.end(), isso finalizará a execução sem respostas (No body returned for response).
 
 // Next com arrays
 // Criamos com variáveis e funções para testar e no final definimos uma rota do tipo get com a rota /testMultpleHandlersArray com um array e dentro do array todas as callbacks que serão executadas
 const callback1 = (req, res, next) => {
-	console.log("Callback 1");
-	next();
-}
+  console.log('Callback 1');
+  next();
+};
 
-function callback2 = (req, _res next) {
-	console.log("Callback 2");
-	next();
+function callback2(req, _res, next) {
+  console.log('Callback 2');
+  next();
 }
 
 const callback3 = (req, res) => {
-	console.log("Callback 3");
-	res.end();
-}
-app.get("/testMultpleHandlersArray", [callback1, callback2, callback3])
+  console.log('Callback 3');
+  res.end();
+};
+app.get('/testMultpleHandlersArray', [callback1, callback2, callback3]);
 // Foi retornado as 3 callbacks
 // Callback1
 // Callback2
@@ -166,14 +169,15 @@ app.get("/testMultpleHandlersArray", [callback1, callback2, callback3])
 
 // Com o route podemos agrupar vários verbos HTTP em um única rota
 // Diferente que all (o all pega todas as requisições e joga para a mesma callback) que vai receber todas as requisições que chegarem, independente do verbo HTTP, no route definimos quais os verbos que queremos que entre e colocamos um callback para cada verbo que entrar.
-app.route("/testRoute")
-	.get((req, res) => {
-		res.send("/testRoute GET")
-})
-	.post((req, res) => {
-		res.send("/testRoute POST")
-})
-	.delete((req, res) => {
-		res.send("/testRoute DELETE")
-})
+app
+  .route('/testRoute')
+  .get((req, res) => {
+    res.send('/testRoute GET');
+  })
+  .post((req, res) => {
+    res.send('/testRoute POST');
+  })
+  .delete((req, res) => {
+    res.send('/testRoute DELETE');
+  });
 // Como não definimos nada para o PUT, ao executá-lo no Insomnia é retornado o erro 404
