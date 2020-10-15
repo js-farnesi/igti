@@ -12,6 +12,7 @@
   "type": "module",
   "dependencies": {
     "express": "^4.17.1",
-    "nodemon": "^2.0.5"
+    "nodemon": "^2.0.5",
+    "winston": "^3.3.3"
   }
 }
