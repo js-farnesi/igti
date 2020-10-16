@@ -1,0 +1,4 @@
+{
+  //ignoramos as alteração feitas no json que fazer o nodemon ficar reiniciando
+  "ignore" : ["*.json"]
+}
