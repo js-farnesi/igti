@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import css from './counter.module.css';
 import IncrementButton from './IncrementButton';
 import DecrementButton from './DecrementButton';
+import Steps from './Steps';
+import Value from './Value';
 
 export default class Counter extends Component {
   constructor() {
@@ -43,9 +45,11 @@ export default class Counter extends Component {
     return (
       <div className={css.counterContainer}>
         <DecrementButton onDecrement={this.handleButtonClick} />
-        <span className={css.counterValue}>{currentCounter}</span>
+
+        <Value value={currentCounter} />
+
         <IncrementButton onIncrement={this.handleButtonClick} />
-        <span className={css.counterValue}>({steps})</span>
+        <Steps currentStep={steps} />
       </div>
     );
   }
