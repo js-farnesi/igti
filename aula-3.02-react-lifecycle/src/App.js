@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Toogle from './components/toogle/Toogle';
 import Users from './components/users/Users';
 
 export default class App extends Component {
@@ -19,7 +20,7 @@ export default class App extends Component {
 
     const json = await res.json();
 
-    console.log(json);
+    // console.log(json);
 
     this.setState({
       users: json.results,
@@ -33,9 +34,14 @@ export default class App extends Component {
   componentWillUnmount() {
     console.log('componentWillUnmount the app...');
   }
-  handleShowUsers = (event) => {
+  // handleShowUsers = (event) => {
+  //   // console.log(event.target.checked);
+  //   this.setState({ showUsers: event.target.checked });
+  // };
+  // Alteramos de events, uma vez que o evento foi trabalhado no componente filho, isChecked é um booleand
+  handleShowUsers = (isChecked) => {
     // console.log(event.target.checked);
-    this.setState({ showUsers: event.target.checked });
+    this.setState({ showUsers: isChecked });
   };
   render() {
     const { showUsers, users } = this.state;
@@ -43,13 +49,13 @@ export default class App extends Component {
     // return <div>{JSON.stringify(this.state.users)}</div>;
     return (
       <div>
-        <div className="switch">
-          <label>
-            Mostrar usuário
-            <input type="checkbox" onChange={this.handleShowUsers} />
-            <span className="lever"></span>
-          </label>
-        </div>
+        <h3>React Lifecycle</h3>
+
+        <Toogle
+          description="Mostrar usuários"
+          enable={showUsers}
+          onToogle={this.handleShowUsers}
+        />
         <hr />
         {/* {showUsers && <div>Users</div>} */}
         {/* {showUsers ? <div>Users</div> : <div>Não posso mostrar nada</div>} */}

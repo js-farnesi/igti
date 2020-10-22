@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import User from './User';
 
 export default class Users extends Component {
   constructor() {
@@ -43,12 +44,18 @@ export default class Users extends Component {
     return (
       <div>
         <p>Componente Users visível por {secondsVisible} segundos</p>
-        {users.map((user) => {
-          const { name, login, picture } = user;
-          // console.log(user.name.first);
-          // return <p>{name.first}</p>;
-          return <p key={login.uuid}>{name.first}</p>;
-        })}
+        <ul>
+          {users.map((user) => {
+            const { name, login, picture } = user;
+            // console.log(user.name.first);
+            // return <p>{name.first}</p>;
+            return (
+              <li key={login.uuid}>
+                <User user={user} />
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }
