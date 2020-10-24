@@ -3,6 +3,10 @@ import InputFullSalary from './components/InputFullSalary';
 import { calculateSalaryFrom } from './helpers/salary';
 import InputReadOnly from './components/InputReadOnly';
 
+const COLOR_DESC_INSS = '#e67e22';
+const COLOR_DESC_IRPF = '#c0392b';
+const COLOR_NET_SALARY = '#16a085';
+
 export default class App extends Component {
   constructor() {
     super();
@@ -46,17 +50,20 @@ export default class App extends Component {
             label="Desconto INSS"
             value={discountINSS}
             percentage={percentINSS}
+            color={COLOR_DESC_INSS}
           />
           <InputReadOnly label="Base IRPF" value={baseIRPF} />
           <InputReadOnly
             label="Desconto IRPF"
             value={discountIRPF}
             percentage={percentIRPF}
+            color={COLOR_DESC_IRPF}
           />
           <InputReadOnly
             label="Salário líquido"
             value={netSalary}
             percentage={percentNetSalary}
+            color={COLOR_NET_SALARY}
           />
         </div>
       </div>
