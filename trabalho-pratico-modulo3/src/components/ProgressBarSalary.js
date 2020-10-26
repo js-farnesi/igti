@@ -1,11 +1,50 @@
 import React, { Component } from 'react';
 
-const { inss, irpf, netSalary, colorINSS } = this.props;
-
 export default class ProgressBarSalary extends Component {
   render() {
-    return <div></div>;
+    const {
+      percentINSS,
+      percentIRPF,
+      percentNetSalary,
+      colorINSS,
+      colorIRPF,
+      colorNetSalary,
+    } = this.props;
+    console.log(this.props);
+
+    return (
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          alingnItems: 'center',
+          justifyContent: 'flex-start',
+        }}
+      >
+        <div
+          style={{
+            backgroundColor: colorINSS,
+            width: percentINSS + '%',
+            height: '20px',
+          }}
+        ></div>
+
+        <div
+          style={{
+            backgroundColor: colorIRPF,
+            width: percentIRPF + '%',
+            height: '20px',
+          }}
+        ></div>
+
+        <div
+          style={{
+            backgroundColor: colorNetSalary,
+            width: percentNetSalary + '%',
+            height: '20px',
+          }}
+        ></div>
+      </div>
+    );
   }
 }
-
-///terminar o componente do progress bar

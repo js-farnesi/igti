@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import InputFullSalary from './components/InputFullSalary';
 import { calculateSalaryFrom } from './helpers/salary';
 import InputReadOnly from './components/InputReadOnly';
+import ProgressBarSalary from './components/ProgressBarSalary';
 
 const COLOR_DESC_INSS = '#e67e22';
 const COLOR_DESC_IRPF = '#c0392b';
@@ -66,6 +67,15 @@ export default class App extends Component {
             color={COLOR_NET_SALARY}
           />
         </div>
+
+        <ProgressBarSalary
+          percentINSS={percentINSS}
+          colorINSS={COLOR_DESC_INSS}
+          percentIRPF={percentIRPF}
+          colorIRPF={COLOR_DESC_IRPF}
+          percentNetSalary={percentNetSalary}
+          colorNetSalary={COLOR_NET_SALARY}
+        />
       </div>
     );
   }
