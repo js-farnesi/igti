@@ -7,3 +7,5 @@ export default class ProgressBarSalary extends Component {
     return <div></div>;
   }
 }
+
+///terminar o componente do progress bar
