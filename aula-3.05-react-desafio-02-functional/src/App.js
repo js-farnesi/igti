@@ -13,6 +13,7 @@ export default class App extends Component {
       filter: '',
     };
   }
+
   async componentDidMount() {
     const res = await fetch('https://restcountries.eu/rest/v2/all');
     const json = await res.json();
@@ -27,12 +28,6 @@ export default class App extends Component {
       };
     });
 
-    //   // console.log(json);
-    //   this.setState({
-    //     allCountries: json,
-    //     filteredCountries: allCountries,
-    //   });
-    // }
     const filteredPopulation = this.calculateTotalPopulationFrom(allCountries);
 
     this.setState({
@@ -51,10 +46,10 @@ export default class App extends Component {
   };
 
   handleChangeFilter = (newText) => {
-    // console.log(newFilter);
     this.setState({
       filter: newText,
     });
+
     const filterLowerCase = newText.toLowerCase();
 
     const filteredCountries = this.state.allCountries.filter((country) => {
@@ -71,17 +66,6 @@ export default class App extends Component {
     });
   };
 
-  // render() {
-  //   const { allCountries, filter } = this.state;
-  //   return (
-  //     <div className="container">
-  //       <h1>React Countries</h1>
-  //       <Header filter={filter} onChangeFilter={this.handleChangeFilter} />
-
-  //       <Countries countries={allCountries} />
-  //     </div>
-  //   );
-  // }
   render() {
     const { filteredCountries, filter, filteredPopulation } = this.state;
 

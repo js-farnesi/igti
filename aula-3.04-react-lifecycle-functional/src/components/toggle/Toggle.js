@@ -1,28 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Toggle extends Component {
-  handleChange = (event) => {
-    const { onToggle } = this.props;
-
+export default function Toggle({ onToggle, enabled, description }) {
+  const handleChange = (event) => {
     const isChecked = event.target.checked;
     onToggle(isChecked);
   };
 
-  render() {
-    const { enabled, description } = this.props;
-
-    return (
-      <div className="switch">
-        <label>
-          {description}
-          <input
-            type="checkbox"
-            checked={enabled}
-            onChange={this.handleChange}
-          />
-          <span className="lever"></span>
-        </label>
-      </div>
-    );
-  }
+  return (
+    <div className="switch">
+      <label>
+        {description}
+        <input type="checkbox" checked={enabled} onChange={handleChange} />
+        <span className="lever"></span>
+      </label>
+    </div>
+  );
 }
