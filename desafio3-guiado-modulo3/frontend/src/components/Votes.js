@@ -1,10 +1,10 @@
 import React from 'react';
 import CountUp from 'react-countup';
 
-export default function Votes({ value }) {
+export default function Votes({ value, previous }) {
   return (
     <div>
-      <CountUp start={value - 1000} end={value} duration={0.6} separator=".">
+      <CountUp start={previous || 0} end={value} duration={0.6} separator=".">
         {({ countUpRef }) => (
           <div>
             <span ref={countUpRef} />
