@@ -37,7 +37,7 @@ export default class App extends Component {
     }
 
     return (
-      <div>
+      <div className="container">
         <Header>Votação</Header>
         <Candidates candidates={candidates} />
       </div>
