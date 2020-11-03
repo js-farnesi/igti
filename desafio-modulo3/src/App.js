@@ -70,3 +70,5 @@ export default function App() {
     </div>
   );
 }
+
+//need to fix bug calculating
