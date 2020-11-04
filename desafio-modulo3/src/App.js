@@ -71,4 +71,4 @@ export default function App() {
   );
 }
 
-//need to fix bug calculating
+//need to fix bug calculating, I going to watch this class again as soon as possible
