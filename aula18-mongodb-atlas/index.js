@@ -31,3 +31,5 @@ client.connect(async (err) => {
   });
   client.close();
 });
+
+// In the next class we're going to do some routers
