@@ -36,3 +36,17 @@ const withdraw = async (req, res) => {
     res, status(500).send('Error when withdrawing: ' + error);
   }
 };
+// 6 - Endpoint para consultar o saldo da conta
+const checkbBalance = async (req, res) => {
+  const agencia = req.params.agencia;
+  const conta = req.params.conta;
+
+  try {
+    const checkbBalance = await validateAccount({ agencia, conta });
+    res.send(checkbBalance);
+  } catch (error) {
+    res.status(500).send('Error when consulting balance' + error);
+  }
+};
+
+// 7 Endpoint para excluir uma conta
