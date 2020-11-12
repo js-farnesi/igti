@@ -50,3 +50,20 @@ const checkbBalance = async (req, res) => {
 };
 
 // 7 Endpoint para excluir uma conta
+const remove = async (req, res) => {
+  const account = req.body;
+
+  try {
+    let deleteAccount = await validateAccount(account);
+
+    await Account.findByIdAndRemove({ _id: deleteAccount._id });
+
+    deleteAccount = await Account.find({
+      agencia: deleteAccount.agencia,
+    }).countDocuments();
+
+    res.send({ totalAccounts: deleteAccount });
+  } catch (error) {
+    res.status(500).send('Error when excluding a account ' + error);
+  }
+};
