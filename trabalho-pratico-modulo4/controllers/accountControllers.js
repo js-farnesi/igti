@@ -49,7 +49,7 @@ const checkbBalance = async (req, res) => {
   }
 };
 
-// 7 Endpoint para excluir uma conta
+// 7 - Endpoint para excluir uma conta
 const remove = async (req, res) => {
   const account = req.body;
 
@@ -65,5 +65,45 @@ const remove = async (req, res) => {
     res.send({ totalAccounts: deleteAccount });
   } catch (error) {
     res.status(500).send('Error when excluding a account ' + error);
+  }
+};
+
+// 8 - Crie um endpoint para realizar transferências entre contas.
+const transfer = async (req, res) => {
+  const account = req.body;
+  const transferMoney = account.valor;
+
+  try {
+    let sourceAccount = await getAccount({ conta: account.contaOrigem });
+    let targetAccount = await getAccount({ conta: account.contaDestino });
+
+    //Valida cobranca de taxa para transferencia
+    if (sourceAccount.agencia !== targetAccount.agencia) {
+      sourceAccount.balance -= 8;
+    }
+
+    //Subtrai do saldo da conta origem o valor da transferencia
+    sourceAccount.balance -= transferMoney;
+
+    //Valida saldo da conta origem antes de concluir transacao
+    if (sourceAccount.balance < 0) {
+      throw new Error('Saldo insuficiente para efetuar a transferencia');
+    }
+
+    //Deposita o valor da tranferencia na conta de destino
+    targetAccount.balance += transferMoney;
+
+    //Salva as alteracoes conta origem
+    sourceAccount = new Account(sourceAccount);
+    await sourceAccount.save();
+
+    //Salva as alteracoes conta destino
+    targetAccount = new Account(targetAccount);
+    await targetAccount.save();
+
+    //Retorna a conta origem com saldo atualizado
+    res.send(sourceAccount);
+  } catch (error) {
+    res.status(500).send('Erro ao realizar transferencia ' + error);
   }
 };
