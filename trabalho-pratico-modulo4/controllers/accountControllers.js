@@ -107,3 +107,38 @@ const transfer = async (req, res) => {
     res.status(500).send('Erro ao realizar transferencia ' + error);
   }
 };
+9. Crie um endpoint obter a media de saldo de uma agencia.
+const avgBalance = async (req, res) => {
+  const agencia = req.params.agencia;
+
+  try {
+    const averageBalance = await Account.aggregate([
+      {
+        $match: {
+          agencia: parseInt(agencia),
+        },
+      },
+      {
+        $group: {
+          _id: '$agencia',
+          media: {
+            $avg: '$balance',
+          },
+        },
+      },
+      {
+        $project: {
+          _id: 0,
+          media: 1,
+        },
+      },
+    ]);
+
+    if (averageBalance.length === 0) {
+      throw new Error('Agencia nao encontrada');
+    }
+    res.send(averageBalance);
+  } catch (error) {
+    res.status(500).send('Erro ao obter saldo medio da Agencia ' + error);
+  }
+};
