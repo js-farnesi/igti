@@ -107,7 +107,7 @@ const transfer = async (req, res) => {
     res.status(500).send('Erro ao realizar transferencia ' + error);
   }
 };
-9. Crie um endpoint obter a media de saldo de uma agencia.
+//9. Crie um endpoint obter a media de saldo de uma agencia.
 const avgBalance = async (req, res) => {
   const agencia = req.params.agencia;
 
@@ -140,5 +140,24 @@ const avgBalance = async (req, res) => {
     res.send(averageBalance);
   } catch (error) {
     res.status(500).send('Erro ao obter saldo medio da Agencia ' + error);
+  }
+};
+// 10. Crie um endpoint para consultar os clientes com menor saldo.
+const topByBalanceLowest = async (req, res) => {
+  const limit = req.params.limit;
+
+  try {
+    const account = await Account.find(
+      {},
+      { _id: 0, agencia: 1, conta: 1, balance: 1 }
+    )
+      .limit(parseInt(limit))
+      .sort({ saldo: 1 });
+    if (account.length === 0) {
+      throw new Error('Nenhum cliente encontrado');
+    }
+    res.send(account);
+  } catch (error) {
+    res.status(500).send('Erro ao obter lista de clientes ' + error);
   }
 };
