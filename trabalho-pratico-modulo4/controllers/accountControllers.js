@@ -161,3 +161,22 @@ const topByBalanceLowest = async (req, res) => {
     res.status(500).send('Erro ao obter lista de clientes ' + error);
   }
 };
+// 11. Crie um endpoint para consultar os clientes com maior saldo.
+const topByBalanceHighest = async (req, res) => {
+  const limit = req.params.limit;
+
+  try {
+    const account = await Account.find(
+      {},
+      { _id: 0, agencia: 1, conta: 1, nome: 1, balance: 1 }
+    )
+      .limit(parseInt(limit))
+      .sort({ saldo: -1, nome: 1 });
+    if (account.length === 0) {
+      throw new Error('Nenhum cliente encontrado');
+    }
+    res.send(account);
+  } catch (error) {
+    res.status(500).send('Erro ao obter lista de clientes ' + error);
+  }
+};
