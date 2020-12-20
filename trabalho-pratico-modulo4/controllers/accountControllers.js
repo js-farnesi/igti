@@ -180,3 +180,34 @@ const topByBalanceHighest = async (req, res) => {
     res.status(500).send('Erro ao obter lista de clientes ' + error);
   }
 };
+// 12. Crie um endpoint que irá transferir o cliente com maior saldo em conta de cada agência para a agência private agencia=99.
+const transferToPrivate = async (req, res) => {
+  try {
+    let transferToPrivates = await Account.aggregate([
+      {
+        $group: {
+          _id: '$agencia',
+          balance: { $max: '$balance' },
+        },
+      },
+    ]);
+
+    for (const transferToPrivate of transferToPrivates) {
+      const { _id, balance } = transferToPrivate;
+      let newAccount = await Account.findOne({
+        agencia: _id,
+        balance,
+      });
+      newAccount.agencia = 99;
+      newAccount.save();
+    }
+    transferToPrivates = await Account.find({
+      agencia: 99,
+    });
+    res.send(transferToPrivates);
+  } catch (error) {
+    res
+      .status(500)
+      .send('Erro transferir clientes para a conta privada' + error);
+  }
+};
