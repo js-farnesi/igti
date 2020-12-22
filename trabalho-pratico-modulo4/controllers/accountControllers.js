@@ -211,3 +211,37 @@ const transferToPrivate = async (req, res) => {
       .send('Erro transferir clientes para a conta privada' + error);
   }
 };
+// valida se agencia/conta existe
+const getAccount = async (account) => {
+  //traz apenas a agencia e a conta para consulta no BD;
+  const { agencia, conta } = account;
+  account = {
+    agencia,
+    conta,
+  };
+  try {
+    if (typeof account.agencia !== 'undefined') {
+      account = await Account.findOne(account);
+    } else {
+      account = await Account.findOne({ conta: account.conta });
+    }
+    if (!account) {
+      throw new Error(`(${agencia}/${conta}) agencia/conta invalida`);
+    }
+    return account;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+export default {
+  deposit,
+  withdraw,
+  checkBalance,
+  remove,
+  transfer,
+  avgBalance,
+  topByBalanceLowest,
+  topByBalanceHighest,
+  transferToPrivate,
+};
