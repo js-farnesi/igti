@@ -211,7 +211,7 @@ const transferToPrivate = async (req, res) => {
       .send('Erro transferir clientes para a conta privada' + error);
   }
 };
-// valida se agencia/conta existe
+// Valida se agencia/conta existe
 const getAccount = async (account) => {
   //traz apenas a agencia e a conta para consulta no BD;
   const { agencia, conta } = account;
